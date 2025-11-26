@@ -1,0 +1,1 @@
+export default function EstimatingPage(){ return <div className="dashboard-card"><div className="card-header"><div className="card-title">Estimating</div></div><div style={{padding:"1rem 1.25rem"}}>Coming soon…</div></div>; }

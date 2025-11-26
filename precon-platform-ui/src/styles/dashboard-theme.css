@@ -1,0 +1,10 @@
+/* Additional dashboard accents */
+.topbar {
+  backdrop-filter: blur(22px);
+}
+
+.module-card,
+.project-selector,
+.dashboard-card {
+  background: var(--panel);
+}

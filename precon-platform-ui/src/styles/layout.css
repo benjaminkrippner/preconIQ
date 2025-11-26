@@ -1,0 +1,137 @@
+/* Authentication Screens */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.auth-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-title {
+  margin-bottom: 1rem;
+}
+
+.auth-message {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #106ebe;
+}
+
+.btn-primary:active {
+  background-color: #005a9e;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0078d4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.profile-dropdown-arrow {
+  transition: transform 0.2s;
+}
+
+.profile-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.profile-dropdown-info {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-dropdown-user-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0.25rem;
+}
+
+.profile-dropdown-user-email {
+  font-size: 12px;
+  color: #666;
+}
+
+.profile-dropdown-signout {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #d13438;
+  font-weight: 500;
+}
+
+.profile-dropdown-signout:hover {
+  background-color: #f5f5f5;
+}
+
+/* Header Layout */
+.topbar-right {
+  margin-left: auto;
+  padding: 0 1rem;
+}
