@@ -20,6 +20,12 @@ The contrasting datasets ensure that temperature, wind, precipitation, and wet-d
 
 ## Running the dashboard locally
 
+> **Important:** The React app expects a PreconIQ API base URL in `REACT_APP_API_BASE_URL`. Without it, all data calls (projects,
+> weather normals, wind, etc.) are sent to the React dev server (localhost:3000) and return 404s. Copy `.env.example` to `.env`
+> and set it to your API host (for local Visual Studio debug builds this is typically `https://localhost:7132`). When running in
+> CI/CD, the `scripts/prepare-env.js` hook will automatically mirror deployment variables (e.g., `PRECONIQAPIURL`, `MSAL_CLIENT_ID`,
+> `MSAL_API_CLIENT_ID`, `AZURE_TENANT_ID`, `MSAL_REDIRECT_URL`) into the `REACT_APP_*` keys that React exposes to the client.
+
 You can serve the static site with either Python or Node. Use whichever tooling you already have installed.
 
 ### Option 1: Python 3 (no dependencies)
