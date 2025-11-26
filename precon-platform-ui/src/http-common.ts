@@ -1,8 +1,20 @@
 import axios from "axios";
 import { IPublicClientApplication, PopupRequest } from "@azure/msal-browser";
 
+const baseURL = process.env.REACT_APP_API_BASE_URL;
+
+if (!baseURL) {
+  // Without this value, requests silently fall back to the UI origin (localhost:3000)
+  // and hit the React dev server instead of the ASP.NET API.
+  // Surfacing an explicit error makes the missing configuration obvious.
+  // eslint-disable-next-line no-console
+  console.error(
+    "REACT_APP_API_BASE_URL is not set. Configure it to point at the PreconIQ API (e.g., https://localhost:7132 or your deployed URL)."
+  );
+}
+
 const httpClient = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL,
 });
 
 // This will be set after MSAL initializes
