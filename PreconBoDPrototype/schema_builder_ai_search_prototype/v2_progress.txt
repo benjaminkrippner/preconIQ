@@ -1,0 +1,270 @@
+# Civil
+  - Wind Farm Road Design
+      • Design Vehicle - Component Delivery: largest vehicle for turbine components
+      • Access Road Design: Access road design criteria specifications.
+      • Public Road Network (Haul Route): Designated public roads for transport.
+      • Construction/Temporary Road X-Section: Temporary road cross-section for construction.
+      • Permanent Road X-Section: Final design cross-section for roads.
+      • Horizontal Curve Centerline Radius: 100'
+      • Access Roads Proposed Width: 14 feet minimum width
+      • Vertical Curve Radius: unknown
+      • Maximum Longitudinal Gradient: 7%
+      • Crown/Cross-Slope - Access Road: Crown: None specified, assume 2%
+      • Crown/Cross-Slope - Access Road/Crane Path: 2% typical cross slope for roads
+      • Turbine Center Pin Distance From Road Centerline: unknown
+      • Temporary Intersections: Intersections for construction traffic access.
+      • Standard Temp Radius Size: 30'
+      • Bump Out Dimensions and Interval: 4' Minimum, widened as depicted
+      • Crane Walk Width: Width varies; typically 16.5 feet.
+      • Cross Country Crane Path: Temporary off-road crane travel route.
+      • Access Road Aggregate Gradation: Particle size distribution of aggregates.
+  - Turbine Area
+      • Turbine Temporary Disturbance: Total temporary area disturbed during construction.
+      • Turbine Top of Pad Size: unknown
+      • Turbine Top of Pad Shape: unknown
+      • Crane Pad Size: Engineer, supply and construct crane pads.
+      • Gravel Ring Dimension: 16.5 feet wide
+  - Earthwork/Grading
+      • EG Surface: Existing Ground surface pre-construction elevation.
+      • Grading Type: substation grading
+      • Access Road: Volume of earthwork for access roads.
+      • WTG Pads: Cut/fill quantities for WTG pads.
+      • Topsoil/Organic Depth: Average topsoil removal depth minimal.
+  - Stormwater Design
+      • Low Water Crossings: Locations for crossing intermittent streams.
+      • Culverts: Pipe structures conveying stormwater flow.
+      • Approach Culverts: Culverts for localized drainage management.
+      • Minimum Pipe Diameter: 18"
+      • Design Storm, Turbine Flooding: Design discharge and drainage criteria.
+  - Disturbance Limits Widths
+      • Roads: Total disturbance width for roads.
+      • Crane Walk: temporary disturbance width for crane
+      • Site (Turbine Construction Pads): Temporary and permanent disturbance area.
+      • Grading Limits: maximum extent of cut and fill
+      • Underground Collection: trench and work zone disturbance
+      • Temporary Turning Radii: Temporary area disturbed for delivery.
+      • Met/Sub/ADLS Roads: 150' disturbance width for roads
+  - Other
+      • Coordinate System: NSRS 2011 Texas State Plane Central
+# Collection
+  - Disturbance/Constraints
+      • Topsoil Stripped Depth (inches): minimal
+      • Topsoil Stripped Width (per Circuit): unknown
+      • Clearing (acres): 63,786.3
+      • Cultural Avoidances: No-disturbance zones marked on plans.
+      • Environmental Constraints: Areas restricted due to environmental sensitivities.
+      • Pipeline Crossings: Locations where collection system crosses.
+      • GPRS: Ground Penetrating Radar Survey.
+      • SWPPP Requirements: Storm Water Pollution Prevention Plan requirements
+  - MV Cable Installation Means/Method
+      • Trench Installation Method: Trenching for MV cable installation.
+      • Cable Installation Method: Trenching, placing, and backfilling cables.
+      • MV Cable Orientation: triangular bundle centered within trench
+      • Trench Depth: 46 inches of cable coverage
+      • Trench Depth to top of Cables: 46 inches of cable coverage
+      • Trench Bedding: Initial material layer for cables.
+      • Trench Width: total horizontal width of trench
+      • Trench Backfill Layer 1 (Cable Zone): Screened thermal sand or fine aggregate.
+      • Screen Size layer 1: ≤1/2 inch
+      • Screening Method layer 1: unknown
+      • Compaction Method layer 1: unknown
+      • Trench Backfill layer 2: General excavated material, 85% compaction.
+      • Screen Size layer 2: unknown
+      • Screening Method layer 2: unknown
+      • Compaction Method layer 2: unknown
+      • Trench Compaction: 85% of standard proctor density
+      • Max Lift: 12 inches
+      • Compaction Testing Frequency: unknown
+      • Assumed Rock %: unknown
+      • Terrain Issues: Shrink-swell soils and caliche expected.
+      • Carsonite Markers: Flexible, durable markers for cables.
+      • Marker Balls: Underground marker balls included splices.
+  - MV Cable Design
+      • Native Rho: suitable RHO value & cable zone
+      • Dry Rho: unknown
+      • Max MV Cable Size: unknown
+      • Max Loading @ 90 °C: unknown
+      • Max Segment Length w/ Tails: unknown
+      • Tail Length (1 side): 25–50 ft
+      • Max # of Turbines per Feeder: unknown
+      • Cable Size: 34.5kV with 100% insulation
+      • 1/0 AWG: Smallest standard MV conductor size.
+      • 4/0 AWG: Moderate-sized conductor for medium feeders.
+      • 500 MCM: Large feeder conductor for high loads.
+      • 750 MCM: Heavy-duty conductor for main feeders.
+      • 1000 MCM: High-capacity conductor for feeders.
+      • 1250 MCM: Very large conductor for feeders.
+      • 1500 MCM: Largest common MV conductor size.
+      • 7#8 CCS (40% conductivity): Seven strands No. 8 copper-clad steel.
+      • Grounding: Buried ground conductors for grounding.
+      • Crossbonding: Grounding method for voltage balance.
+      • Mid-span Grounding: Ground connection limits sheath voltage.
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: short-circuit current rating of cables
+      • Trench Ground Short Circuit Withstand: short-circuit current capacity of grounding
+      • MV Cable: 34.5 kV rated medium-voltage power cable
+      • Voltage: 345 kV class, 350 kV maximum
+      • Conductor: rectangular copper conductors
+      • Max Segment Length w/ Tails: unknown
+      • Tail Length (1 side): 25–50 ft
+      • Max # of Turbines per Feeder: unknown
+      • Cable Size: 34.5kV with 100% insulation
+      • 1/0 AWG: Smallest standard MV conductor size.
+      • 4/0 AWG: Moderate-sized conductor for medium feeders.
+      • 500 MCM: Large feeder conductor for high loads.
+      • 750 MCM: Heavy-duty conductor for main feeders.
+      • 1000 MCM: High-capacity conductor for feeders.
+      • 1250 MCM: Very large conductor for feeders.
+      • 1500 MCM: Largest common MV conductor size.
+      • 7#8 CCS (40% conductivity): Seven strands No. 8 copper-clad steel.
+      • Grounding: Buried ground conductors for grounding.
+      • Crossbonding: Grounding method for voltage balance.
+      • Mid-span Grounding: Ground connection limits sheath voltage.
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: short-circuit current rating of cables
+      • Trench Ground Short Circuit Withstand: short-circuit current capacity of grounding
+      • MV Cable: 34.5 kV rated medium-voltage power cable
+      • Voltage: 345 kV class, 350 kV maximum
+      • Conductor: rectangular copper conductors
+      • Cable Size: 34.5kV with 100% insulation
+      • 1/0 AWG: Smallest standard MV conductor size.
+      • 4/0 AWG: Moderate-sized conductor for medium feeders.
+      • 500 MCM: Large feeder conductor for high loads.
+      • 750 MCM: Heavy-duty conductor for main feeders.
+      • 1000 MCM: High-capacity conductor for feeders.
+      • 1250 MCM: Very large conductor for feeders.
+      • 1500 MCM: Largest common MV conductor size.
+      • 7#8 CCS (40% conductivity): Seven strands No. 8 copper-clad steel.
+      • Grounding: Buried ground conductors for grounding.
+      • Crossbonding: Grounding method for voltage balance.
+      • Mid-span Grounding: Ground connection limits sheath voltage.
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: short-circuit current rating of cables
+      • Trench Ground Short Circuit Withstand: short-circuit current capacity of grounding
+      • MV Cable: 34.5 kV rated medium-voltage power cable
+      • Voltage: 345 kV class, 350 kV maximum
+      • Conductor: rectangular copper conductors
+      • 7#8 CCS (40% conductivity): Seven strands No. 8 copper-clad steel.
+      • Grounding: Buried ground conductors for grounding.
+      • Crossbonding: Grounding method for voltage balance.
+      • Mid-span Grounding: Ground connection limits sheath voltage.
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: short-circuit current rating of cables
+      • Trench Ground Short Circuit Withstand: short-circuit current capacity of grounding
+      • MV Cable: 34.5 kV rated medium-voltage power cable
+      • Voltage: 345 kV class, 350 kV maximum
+      • Conductor: rectangular copper conductors
+      • Mid-span Grounding: Ground connection limits sheath voltage.
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: short-circuit current rating of cables
+      • Trench Ground Short Circuit Withstand: short-circuit current capacity of grounding
+      • MV Cable: 34.5 kV rated medium-voltage power cable
+      • Voltage: 345 kV class, 350 kV maximum
+      • Conductor: rectangular copper conductors
+      • Conductor Shield: Semi-conducting layer around conductor.
+      • Insulation: Primary dielectric layer electrically isolates.
+      • Conductor: rectangular copper conductors
+      • Conductor Shield: Semi-conducting layer around conductor.
+      • Insulation: Primary dielectric layer electrically isolates.
+      • Conductor Shield: Semi-conducting layer around conductor.
+      • Insulation: Primary dielectric layer electrically isolates.
+      • Insulation Shield: Semi-conducting layer surrounding insulation.
+      • Metallic Shield / Concentric Neutral: Conductive layer providing fault-current return.
+      • Non-Conducting Jacket: Outer protective sheath for cables.
+      • Max Continuous Temperature: 90 °C for XLPE
+      • Emergency Temperature Rating: 130 °C during fault conditions
+      • Approved Vendors: unknown
+      • Single Mode Fiber: Optical fiber for SCADA systems.
+      • Innerduct: HDPE or PVC conduit housing.
+      • Innerduct Preloaded with Fiber: Innerduct with pre-installed fiber optic.
+      • Approved Vendors (Fiber): unknown
+      • BIL: maximum lightning impulse voltage withstand
+  - Underground Splice
+      • Splice Type: unknown
+      • Connection Type: compression
+      • Slack: 10–25 feet per splice
+      • Marker Ball: Underground electronic or passive marker.
+      • Approved Vendors: unknown
+  - Junction Box
+      • Material: unknown
+      • Junction: 3-way, 4-way, 5-way junction
+      • Extension: Additional enclosure for cable terminations.
+      • T-Bodies: Elbow-style separable connectors for MV cables.
+      • Fault Indicators: Visual or electronic fault indicators.
+      • Cable Support Brackets: Hardware securing MV cables' support.
+      • Base Backfill: Engineered material for drainage stability.
+      • Bollards: Protective posts around junction boxes.
+      • Bollard Type: unknown
+      • Cattle Guard: Grating preventing livestock access areas.
+      • Ground Ring: Continuous buried grounding conductor.
+      • Rock Ring: Coarse rock for drainage enhancement.
+      • Junction Box Label: Permanently label all equipment devices.
+      • Warning Label: Warning – Underground Electrical Equipment
+      • Danger Label: Danger – High Voltage – Keep Out
+      • Fault Indicator Label: Fault indicators for maintenance reference.
+      • Approved Vendors: unknown
+  - Bores
+      • Installation Method: horizontal directional drilling, jack-and-bore
+      • Material: unknown
+      • Sizes: unknown
+      • Max Depth: eight feet
+      • Assume Minimum Bore Length: 13,700 feet
+      • Steel Casing: Protective steel sleeve for conduits.
+      • Marker Ball: Underground electronic marker for splices.
+      • Assumed Rock %: unknown
+  - Pad Mount Transformer
+      • Boxpad: Concrete foundation for transformer support.
+      • Arrester: Surge protection device for transformers.
+      • T-Bodies: Elbow-style separable connectors for MV cables.
+      • Fault Indicator: Visual or electronic fault display.
+      • LV Cable: Low-voltage conductors connecting transformer secondary.
+      • # LV Cable/Phase: unknown
+      • Transformer Label: Transformer ID, kVA rating, voltage ratio, phase information.
+      • Warning Label: Warning – Underground Electrical Equipment
+      • Danger Label: Danger – High Voltage – Keep Out
+      • Fault Indicator Label: Fault indicators for maintenance reference.
+      • Bollards: 4-bollards at junction box locations.
+      • Bollard Type: unknown
+      • Approved Vendors: unknown
+  - Switchgear
+      • Arrester: Surge protection device for transformers.
+      • T-Bodies: Elbow-style separable connectors for MV cables.
+      • Fault Indicator: Device for displaying feeder faults.
+      • Fault Indicator Label: Fault indicators for maintenance reference.
+  - Fiber Splices
+      • At-Grade or Below Grade: unknown
+      • Handhole: unknown
+      • Handhole Cover: Removable lid for handhole access.
+  - Riser Terminations
+      • Type: unknown
+      • Connection Type: compression
+      • Fault Indicator: Visual or electronic fault display.
+      • Approved Vendors: unknown
+  - Turbine Conduit
+      • MV Conduit: Routing medium-voltage power cables.
+      • Size/Material (MV): 34.5kV with 100% insulation
+      • MV Entrance: MV conduit entry point specifications.
+      • LV Conduit: Low-voltage power cable routing system.
+      • Size/Material (LV): unknown
+      • Fault Indicator: Visual or electronic fault display.
+      • Approved Vendors: unknown
+  - Turbine Conduit
+      • MV Conduit: Routing medium-voltage power cables.
+      • Size/Material (MV): 34.5kV with 100% insulation
+      • MV Entrance: MV conduit entry point specifications.
+      • LV Conduit: Low-voltage power cable routing system.
+      • Size/Material (LV): unknown
+      • LV Entrance: Entry point for LV conduit.
+      • # of LV Conduits: unknown
+      • # of LV Conduit Spares: unknown
+      • Communication Conduit: Fiber optic conduit for SCADA.
+      • Grounding Conduit: Conduit housing grounding conductors.
+  - Tests
+      • MV Cable Jacket Integrity: DC hi-pot or continuity check
+      • MV Cable Insulation Resistance: Insulation resistance between conductors confirmed.
+      • MV Cable Continuity: Verification test for cable continuity.
+      • Very Low Frequency (VLF): High-voltage AC test at 0.1 Hz
+      • Voltage & Phase Rotation: Voltage magnitudes and phase rotation.
+      • Partial Discharge: Detects localized electrical discharges.
+      • Transformer Turns Ratio (TTR): Transformer turns ratio on taps.
+      • OTDR: Measures fiber optic cable quality.

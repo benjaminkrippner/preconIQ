@@ -1,0 +1,14 @@
+azure-functions
+azure-storage-blob
+azure-search-documents>=11.4.0
+azure-core
+openai>=1.30.0
+python-dotenv
+pypdf
+openpyxl
+python-docx 
+xmltodict
+dbfread
+extract-msg
+tiktoken
+thefuzz[speedup]

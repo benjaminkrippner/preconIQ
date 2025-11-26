@@ -1,0 +1,119 @@
+# This workflow will build a Python app and deploy it to an Azure Functions App on Linux when a commit is pushed to your default branch.
+#
+# This workflow assumes you have already created the target Azure Functions app.
+# For instructions see https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python?pivots=python-mode-configuration
+#
+# To configure this workflow:
+# 1. Set up the following secrets in your repository:
+#   - AZURE_FUNCTIONAPP_PUBLISH_PROFILE
+# 2. Change env variables for your configuration.
+#
+# For more information on:
+#   - GitHub Actions for Azure: https://github.com/Azure/Actions
+#   - Azure Functions Action: https://github.com/Azure/functions-action
+#   - Publish Profile: https://github.com/Azure/functions-action#using-publish-profile-as-deployment-credential-recommended
+#   - Azure Service Principal for RBAC: https://github.com/Azure/functions-action#using-azure-service-principal-for-rbac-as-deployment-credential
+#
+# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples/tree/master/FunctionApp
+
+name: Deploy PreconIQAzureFunctions to Azure Function App
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - main
+
+env:
+  AZURE_FUNCTIONAPP_NAME: 'preconiqfa-dev'   # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'PreconIQAzureFunctions'       # set this to the path to your function app project
+  PYTHON_VERSION: '3.11'                     # set this to the python version to use
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  set-environment:
+    runs-on: ubuntu-latest-qco
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      function-app-name: ${{ steps.set-env.outputs.function-app-name }}
+      resource-group: ${{ steps.set-env.outputs.resource-group }}
+    steps:
+      - name: Determine environment
+        id: set-env
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "environment=bla-pcp-ts-rg" >> $GITHUB_OUTPUT
+            echo "function-app-name=preconiqfa-test" >> $GITHUB_OUTPUT
+            echo "resource-group=bla-pcp-ts-rg" >> $GITHUB_OUTPUT
+          else
+            echo "environment=bla-pcp-dv-rg" >> $GITHUB_OUTPUT
+            echo "function-app-name=preconiqfa-dev" >> $GITHUB_OUTPUT
+            echo "resource-group=bla-pcp-dv-rg" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    runs-on: ubuntu-latest-qco
+    needs: set-environment
+    environment: ${{ needs.set-environment.outputs.environment }}
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v4
+
+    - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Pip'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+        popd
+
+    - name: 'Upload artifact for deployment job'
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-app
+        path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+
+  deploy:
+    runs-on: ubuntu-latest-qco
+    needs: [build, set-environment]
+    environment: ${{ needs.set-environment.outputs.environment }}
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ vars.AZURE_CLIENT_ID }}
+        tenant-id: ${{ vars.AZURE_TENANT_ID }}
+        subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+    - name: 'Download artifact from build job'
+      uses: actions/download-artifact@v4
+      with:
+        name: python-app
+        path: ./output
+
+    - name: 'Replace CDS API credentials in Python file'
+      run: |
+        sed -i "s|__CDSAPIURL__|${{ vars.CDSAPIURL }}|g" ./output/routes/fetch_era5_winddata.py
+        sed -i "s|__CDSAPIKEY__|${{ vars.CDSAPIKEY }}|g" ./output/routes/fetch_era5_winddata.py
+
+    - name: 'Deploy to Azure Functions using Azure CLI'
+      run: |
+        cd ./output
+        zip -r ../deploy.zip .
+        cd ..
+        az functionapp deployment source config-zip \
+          --resource-group ${{ needs.set-environment.outputs.resource-group }} \
+          --name ${{ needs.set-environment.outputs.function-app-name }} \
+          --src deploy.zip

@@ -1,0 +1,152 @@
+# This workflow will build and push a .NET Core app to an Azure Web App when a commit is pushed to your default branch.
+#
+# This workflow assumes you have already created the target Azure App Service web app.
+# For instructions see https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode
+#
+# To configure this workflow:
+#
+# 1. Download the Publish Profile for your Azure Web App. You can download this file from the Overview page of your Web App in the Azure Portal.
+#    For more information: https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials
+#
+# 2. Create a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE, paste the publish profile contents as the value of the secret.
+#    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
+#
+# 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the AZURE_WEBAPP_PACKAGE_PATH and DOTNET_VERSION environment variables below.
+#
+# For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
+# For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
+
+name: Build and deploy ASP.Net Core app to an Azure Web App
+
+env:
+  AZURE_WEBAPP_NAME: PreconIQAPI-dev    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_PACKAGE_PATH: 'PreconIQAPI'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '8.0.x'                 # set this to the .NET Core version to use
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  set-environment:
+    runs-on: ubuntu-latest-qco
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      webapp-name: ${{ steps.set-env.outputs.webapp-name }}
+    steps:
+      - name: Determine environment
+        id: set-env
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "environment=bla-pcp-ts-rg" >> $GITHUB_OUTPUT
+            echo "webapp-name=PreconIQAPI-test" >> $GITHUB_OUTPUT
+          else
+            echo "environment=bla-pcp-dv-rg" >> $GITHUB_OUTPUT
+            echo "webapp-name=PreconIQAPI-dev" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    needs: set-environment
+    environment: ${{ needs.set-environment.outputs.environment }}
+    runs-on: ubuntu-latest-qco
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Set up dependency caching for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Build with dotnet
+        run: dotnet build PreconIQAPI/PreconIQAPI.sln --configuration Release
+
+      - name: dotnet publish
+        run: dotnet publish PreconIQAPI/PreconIQAPI.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: PreconIQAPI
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest-qco
+    needs: [build, set-environment]
+    environment:
+      name: ${{ needs.set-environment.outputs.environment }}
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Set Key Vault Access Policy
+        run: |
+          az keyvault set-policy \
+            --name ${{ vars.KEY_VAULT_NAME }} \
+            --spn ${{ vars.AZURE_CLIENT_ID }} \
+            --secret-permissions get list
+
+      - name: Get Key Vault Secrets
+        id: get-secrets
+        uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: ${{ vars.KEY_VAULT_NAME }}
+          secrets: 'ConnectionStrings--DefaultConnection, LogEventHub--EventHubConnectionString, LogEventHub--EventHubName, EntraID--TenantId, EntraID--API--ClientId, EntraID--UI--ClientId'
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: PreconIQAPI
+
+      - name: Replace tokens in NLog.config
+        run: |
+          sed -i 's|#{ResourceGroup}#|${{ needs.set-environment.outputs.environment }}|g' NLog.config
+          sed -i 's|#{AppService}#|${{ needs.set-environment.outputs.webapp-name }}|g' NLog.config
+
+      - name: Variable Substitution in appsettings.json
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: '**/*appsettings*.json'
+        env:
+          ConnectionStrings.DefaultConnection: ${{ steps.get-secrets.outputs.ConnectionStrings--DefaultConnection }}
+          LogEventHub.EventHubConnectionString: ${{ steps.get-secrets.outputs.LogEventHub--EventHubConnectionString }}
+          LogEventHub.EventHubName: ${{ steps.get-secrets.outputs.LogEventHub--EventHubName }}
+          EntraID.TenantId: ${{ steps.get-secrets.outputs.EntraID--TenantId }}
+          EntraID.API.ClientId: ${{ steps.get-secrets.outputs.EntraID--API--ClientId }}
+          EntraID.UI.ClientId: ${{ steps.get-secrets.outputs.EntraID--UI--ClientId }}
+          KeyVault.KeyVaultUrl: https://${{ vars.KEY_VAULT_NAME }}.vault.azure.net/
+          Swagger.OAuth2RedirectUrl: ${{ vars.SWAGGER_REDIRECT_URL }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ needs.set-environment.outputs.webapp-name }}
+          package: .

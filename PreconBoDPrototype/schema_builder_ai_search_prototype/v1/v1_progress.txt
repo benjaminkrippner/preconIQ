@@ -1,0 +1,153 @@
+add to output -> when there is successful extract, attach source.
+-> bonus points: AI rational
+
+initual can be ~10% reliably -> 
+
+2 phase process: 
+    1) ai extracted assumtion
+    2) agent extract assumption + human verification
+
+UI - component that flags output is verify by SME.
+
+
+
+
+======= WIND COLLECTION SYSTEM — AUTO POPULATED OUTPUT =======
+
+# Design Area
+  - Disturbances/Constraints
+      • Topsoil Stripped Depth (inches): unknown
+      • Topsoil Stripped Width(per Circuit): unknown
+  - Clearing (acres)
+      • Cultural Avoidances: unknown
+  - Enivronmental Constraints
+      • Pipeline Crossings: unknown
+      • GPRS: unknown
+  - SWPPP Requirements
+  - MV Cable Installation Means/Methods
+      • Trench Installation Method: unknown
+      • Cable Installation Method: unknown
+      • MV Cable Orientation: unknown
+      • Trench Depth: unknown
+      • Trench Depth to top of Cables: unknown
+      • Trench Bedding: unknown
+      • Trench Width: unknown
+      • Trench Backfill Layer 1(Cable Zone): unknown
+      • Screen Size layer 1: unknown
+      • Screening Method layer 1: unknown
+      • Compaction Method layer 1: unknown
+      • Trench Backfill layer 2: unknown
+      • Screen Size layer 2: unknown
+      • Screening Method layer 2: unknown
+      • Compaction Method layer 2: unknown
+      • Trench Compaction: unknown
+      • Max lift: unknown
+      • Compaction Testing Frequency: unknown
+      • Assumed Rock %: unknown
+      • Terrain Issues: unknown
+      • Carsonite Markers: unknown
+  - Marker Balls
+  - MV Cable Design
+      • Native Rho: unknown
+      • Dry Rho: unknown
+      • Max MV Cable Size: unknown
+      • Max Loading @ 90 deg C: unknown
+      • Max Segment Length w Tails: unknown
+      • Tail Length (1 side): unknown
+      • Max # of Turbines per Feeder: unknown
+      • Cable size: unknown
+  - 1/0 AWG
+  - 4/0 AWG
+      • 500 MCM: unknown
+      • 750 MCM: unknown
+      • 1000 MCM: unknown
+      • 1250 MCM: unknown
+      • 1500 MCM: unknown
+      • 7#8 CCS (40% conductivity): unknown
+      • Grounding: unknown
+      • Crossbonding: unknown
+      • Mid-span grounding: unknown
+      • MV Conductor Short Circuit Withstand: unknown
+      • Concentric Neutral Short Circuit Withstand: unknown
+      • Trench Ground Short Circuit Withstand: unknown
+  - MV Cable
+      • Voltage: 345 kV / 34.5 kV / 13.8 kV (src: Laurel Wind Balance of Plant RFP_August 2024.docx)
+      • Conductor: unknown
+      • Conductor Shield: 3/8” EHS Static (src: BE_Laurel Wind TX_311.6MW Pricing Clarification Letter_R1 04.04.25_NCE Comments.pdf)
+      • Insulation: unknown
+      • Insulation Sheild: unknown
+  - Metallic Shield/Concentric Neutral
+      • Non-Conducting Jacket: unknown
+      • Max continuous temperature: 65°C (src: Attachment A 345kV 235MVA.pdf)
+      • Emergency temperature rating: unknown
+  - Approved Vendors
+  - Junction Box
+      • Material: unknown
+      • Junction: unknown
+      • Extension: unknown
+      • T-Bodies: unknown
+      • Fault Indicators: unknown
+      • Cable Support Brackets: unknown
+      • Base Backfill: unknown
+      • Bollards: unknown
+      • Bollard Type: unknown
+      • Cattle Guard: 20 ton axle weight. (src: Re_ Laurel - LCRA Road Drawing Set.msg)
+      • Ground Ring: unknown
+      • Rock Ring: unknown
+      • Junction Box Label: unknown
+      • Warning Label: unknown
+      • Danger Label: unknown
+      • Fault Indicator Label: unknown
+  - Bores
+      • Installation Method: unknown
+      • Material: unknown
+      • Sizes: unknown
+      • Max Depth: unknown
+  - Assume minimumn bore length
+      • Steel Casing: unknown
+      • Marker Ball: unknown
+  - Assumed Rock %
+  - Pad Mount Transformer
+      • Boxpad: unknown
+      • Arrester: 1) 1.73 inches (44 mm) per nominal system line-to-ground voltage in kV. (src: 345kV 235MVA Power Transformer Specification.pdf)
+      • T-Bodies: unknown
+      • Fault Indicator: unknown
+      • LV Cable: 1000 kcmil standard Aluminum 2000V (src: Laurel Wind Balance of Plant RFP_August 2024.docx)
+  - # LV cable/phase
+      • Transformer Label: Three Phase Main Power Transformer (src: Attachment A 345kV 235MVA.pdf)
+      • Warning Label: unknown
+      • Danger Label: unknown
+      • Fault Indicator Label: unknown
+      • Bollards: unknown
+      • Bollard Type: unknown
+  - Switchgear
+      • Arrester: 1) Arrester creepage distance shall not be less than 1.73 inches (44 mm). (src: 345kV 235MVA Power Transformer Specification.pdf)
+      • T-Bodies: unknown
+      • Fault Indicator: unknown
+      • Fault Indicator Label: unknown
+  - Fiber Splices
+      • At-Grade or Below Grade: unknown
+      • Handhole: unknown
+      • Handhole Cover: unknown
+  - Riser Terminations
+      • Type: unknown
+      • Connection Type: unknown
+      • Fault Indicator: unknown
+  - Turbine Conduit
+  - MV Conduit
+  - Size/Material
+      • LV Entrance: unknown
+      • # of LV conduits: unknown
+      • # of LV conduit spares: unknown
+      • Communication Conduit: unknown
+      • Grounding Conduit: unknown
+  - LV Conduit
+  - Tests
+      • MV Cable Jacket Integrity: unknown
+      • MV Cable Insulation Resistance: unknown
+      • MV Cable Continuity: unknown
+      • Very Low Frequency (VLF): unknown
+      • Voltage & Phase Rotation: unknown
+      • Partial Discharge: unknown
+      • Transformer Turns Ratio (TTR): unknown
+      • OTDR: unknown
