@@ -22,9 +22,18 @@ The contrasting datasets ensure that temperature, wind, precipitation, and wet-d
 
 > **Important:** The React app expects a PreconIQ API base URL in `REACT_APP_API_BASE_URL`. Without it, all data calls (projects,
 > weather normals, wind, etc.) are sent to the React dev server (localhost:3000) and return 404s. Copy `.env.example` to `.env`
-> and set it to your API host (for local Visual Studio debug builds this is typically `https://localhost:7132`). When running in
+> and set it to your API host (for local Visual Studio debug builds this is typically `https://localhost:7069`). When running in
 > CI/CD, the `scripts/prepare-env.js` hook will automatically mirror deployment variables (e.g., `PRECONIQAPIURL`, `MSAL_CLIENT_ID`,
-> `MSAL_API_CLIENT_ID`, `AZURE_TENANT_ID`, `MSAL_REDIRECT_URL`) into the `REACT_APP_*` keys that React exposes to the client.
+> `MSAL_API_CLIENT_ID`, `AZURE_TENANT_ID`, `MSAL_REDIRECT_URL`) into the `REACT_APP_*` keys that React exposes to the client. The
+> `.env.example` file contains the current local defaults:
+>
+> ```
+> REACT_APP_API_BASE_URL=https://localhost:7069
+> REACT_APP_MSAL_TENANT_ID=78d53608-54ca-4a74-8beb-8a1399c1189c
+> REACT_APP_MSAL_CLIENT_ID=5f0fa384-2bb0-421e-9141-08ec2eb34c67
+> REACT_APP_MSAL_API_CLIENT_ID=2dbc60cd-9e28-44df-b213-b216b05fff01
+> REACT_APP_MSAL_REDIRECT_URL=http://localhost:3000
+> ```
 
 You can serve the static site with either Python or Node. Use whichever tooling you already have installed.
 
